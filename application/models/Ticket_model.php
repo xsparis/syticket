@@ -4,9 +4,9 @@ class Ticket_model extends CI_model {
         $this->load->database();
     }
 
-    public function get_ticket_id($id_show,$number) {
-        //select id from tickets where numebr=number;
-        //$this->db->get
-
+    public function get_ticket($id_show,$num) {
+        $table = 'tickets_show'.$id_show;
+        $query = $this->db->get_where($table,array('number'=>$num));
+        return $query->result_array();
     }
 }

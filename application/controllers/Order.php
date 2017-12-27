@@ -1,7 +1,7 @@
 <?php
 class Order extends CI_Controller {
     public function __construct(){
-        parent::_construct();
+        parent::__construct();
         $this->load->model('order_model');
         $this->load->model('customer_model');
         $this->load->model('ticket_model');
@@ -19,7 +19,7 @@ class Order extends CI_Controller {
             // create customer, show et ticket
             $id_customer = $this->customer_model->create_customer();
             $id_show = $this->input->post('id_show');
-            $id_ticket = $this->ticket_model->get_ticket_id($id_show);            
+            $id_ticket = $this->ticket_model->get_ticket($id_show);            
             // create order
             $res=$id_customer = $this->order_model->create_order($id_customer,$id_show,$id_ticket);
             // res
@@ -31,4 +31,12 @@ class Order extends CI_Controller {
         }
         
     }
+
+
+
+    public function bt_check_ticket() {
+
+    }
+
+    public function 
 }
